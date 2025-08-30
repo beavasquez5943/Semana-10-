@@ -4,36 +4,7 @@ import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/**
- * VacunacionCovidSets.java
- *
- * Solución en Java para generar un conjunto ficticio de ciudadanos y aplicar
- * operaciones de teoría de conjuntos para obtener:
- *  - Ciudadanos que no se han vacunado.
- *  - Ciudadanos que han recibido ambas dosis (completos: 2 dosis).
- *  - Ciudadanos que solo han recibido la vacuna de Pfizer.
- *  - Ciudadanos que solo han recibido la vacuna de AstraZeneca.
- *
- * Cumple con los requisitos del enunciado:
- *  - 500 ciudadanos ("Ciudadano 1" ... "Ciudadano 500").
- *  - 75 ciudadanos vacunados con Pfizer (al menos 1 dosis).
- *  - 75 ciudadanos vacunados con AstraZeneca (al menos 1 dosis).
- *
- * Salidas:
- *  - Impresión por consola con resúmenes.
- *  - Archivos CSV generados en el directorio de ejecución: not_vaccinated.csv,
- *    both_doses.csv, only_pfizer.csv, only_astrazeneca.csv
- *
- * Opcional: generación de PDF (comentado). Para activar la generación de PDF,
- * agregue la dependencia Apache PDFBox a su proyecto y descomente la llamada a
- * generatePdfReport(). (Se incluye una plantilla de método al final).
- *
- * Cómo compilar y ejecutar:
- *  $ javac VacunacionCovidSets.java
- *  $ java VacunacionCovidSets
- *
- * Autor: (Original, generado para la tarea)
- */
+
 public class VacunacionCovidSets {
 
     public static void main(String[] args) {
@@ -116,14 +87,11 @@ public class VacunacionCovidSets {
             System.err.println("Error al escribir archivos CSV: " + e.getMessage());
         }
 
-        // OPCIONAL: Generar reporte en PDF (comentar/descomentar según dependencia)
-        // Para activar: agregar dependencia org.apache.pdfbox:pdfbox y descomentar la línea siguiente
-        // try { generatePdfReport(notVaccinated, bothDoses, onlyPfizer, onlyAstra); } catch (IOException e) { e.printStackTrace(); }
 
         System.out.println("\nEjecución finalizada.");
     }
 
-    // Método auxiliar: muestrea aleatoriamente n elementos distintos de la lista
+    
     private static Set<String> randomSample(List<String> list, int n, Random rnd) {
         if (n < 0 || n > list.size())
             throw new IllegalArgumentException("n debe estar entre 0 y el tamaño de la lista");
@@ -156,10 +124,7 @@ public class VacunacionCovidSets {
     }
 
     
-    // EJEMPLO de generación de PDF usando Apache PDFBox (comentado para evitar dependencia en compilación
-    // Si desea usarlo:
-    // 1) Agregue la dependencia Maven/Gradle: org.apache.pdfbox:pdfbox:2.0.27 (o versión más reciente)
-    // 2) Descomente este método y la llamada en main
+    
     
     private static void generatePdfReport(Set<String> notVaccinated, Set<String> bothDoses,
                                           Set<String> onlyPfizer, Set<String> onlyAstra) throws IOException {
